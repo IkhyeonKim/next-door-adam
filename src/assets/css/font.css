@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "TmonMonsori";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 100;
+  font-display: block;
+  src: local("Noto Sans KR Thin"), local("NotoSansKR-Thin"), url("../fonts/NotoSansKR-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: local("Noto Sans KR Light"), local("NotoSansKR-Light"), url("../fonts/NotoSansKR-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  font-weight: normal;
+  font-display: block;
+  src: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"),
+    url("../fonts/NotoSansKR-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"),
+    url("../fonts/NotoSansKR-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  font-weight: bold;
+  font-display: block;
+  src: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("../fonts/NotoSansKR-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: local("Noto Sans KR Black"), local("NotoSansKR-Black"), url("../fonts/NotoSansKR-Black.otf") format("opentype");
+}
