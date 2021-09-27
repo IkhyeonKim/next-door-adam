@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
+    html {
+        font-size: 62.5%;
+    }
+
     html, body, #root {
         font-family: 'Roboto-ragular', "Noto Sans KR", sans-serif;
         width: 100%;
@@ -32,6 +36,19 @@ const GlobalStyle = createGlobalStyle`
     }
     ::-webkit-scrollbar-thumb:hover {
         background: rgba(0, 0, 0, 0.2);
+    }
+
+    .section {
+        overflow: hidden;
+    }
+
+    .section-content {
+    }
+
+    .main-title {
+        font-family: "TmonMonsori";
+        font-size: 12.2rem;
+        line-height: 11.8rem;
     }
 `;
 
