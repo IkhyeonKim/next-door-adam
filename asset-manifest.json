@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/next-door-adam/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/next-door-adam/static/js/main.cf60b798.chunk.js",
-    "main.js.map": "/next-door-adam/static/js/main.cf60b798.chunk.js.map",
-    "runtime-main.js": "/next-door-adam/static/js/runtime-main.10562645.js",
-    "runtime-main.js.map": "/next-door-adam/static/js/runtime-main.10562645.js.map",
-    "static/js/2.99609027.chunk.js": "/next-door-adam/static/js/2.99609027.chunk.js",
-    "static/js/2.99609027.chunk.js.map": "/next-door-adam/static/js/2.99609027.chunk.js.map",
-    "static/js/3.1d2b48e3.chunk.js": "/next-door-adam/static/js/3.1d2b48e3.chunk.js",
-    "static/js/3.1d2b48e3.chunk.js.map": "/next-door-adam/static/js/3.1d2b48e3.chunk.js.map",
+    "main.css": "/next-door-adam/static/css/main.d37f105f.chunk.css",
+    "main.js": "/next-door-adam/static/js/main.3c78a3ba.chunk.js",
+    "main.js.map": "/next-door-adam/static/js/main.3c78a3ba.chunk.js.map",
+    "runtime-main.js": "/next-door-adam/static/js/runtime-main.7873fc72.js",
+    "runtime-main.js.map": "/next-door-adam/static/js/runtime-main.7873fc72.js.map",
+    "static/js/2.89b7dcb2.chunk.js": "/next-door-adam/static/js/2.89b7dcb2.chunk.js",
+    "static/js/2.89b7dcb2.chunk.js.map": "/next-door-adam/static/js/2.89b7dcb2.chunk.js.map",
+    "static/js/3.08d053b5.chunk.js": "/next-door-adam/static/js/3.08d053b5.chunk.js",
+    "static/js/3.08d053b5.chunk.js.map": "/next-door-adam/static/js/3.08d053b5.chunk.js.map",
     "index.html": "/next-door-adam/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/next-door-adam/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.99609027.chunk.js.LICENSE.txt": "/next-door-adam/static/js/2.99609027.chunk.js.LICENSE.txt"
+    "static/css/main.d37f105f.chunk.css.map": "/next-door-adam/static/css/main.d37f105f.chunk.css.map",
+    "static/js/2.89b7dcb2.chunk.js.LICENSE.txt": "/next-door-adam/static/js/2.89b7dcb2.chunk.js.LICENSE.txt",
+    "static/media/font.css": "/next-door-adam/static/media/NotoSansKR-Thin.30fa6d56.otf"
   },
   "entrypoints": [
-    "static/js/runtime-main.10562645.js",
-    "static/js/2.99609027.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.cf60b798.chunk.js"
+    "static/js/runtime-main.7873fc72.js",
+    "static/js/2.89b7dcb2.chunk.js",
+    "static/css/main.d37f105f.chunk.css",
+    "static/js/main.3c78a3ba.chunk.js"
   ]
 }
