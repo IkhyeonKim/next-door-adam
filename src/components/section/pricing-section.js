@@ -5,14 +5,16 @@ import ButtonPrimary from "../atoms/Button";
 
 const PricingWrapper = styled.div`
   width: 100%;
+  max-width: 980px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
   grid-template-rows: auto 30rem;
 
   padding: 4rem 2rem;
-  background-color: #fff;
   margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 
   h2 {
     grid-column: 1 / -1;
@@ -31,12 +33,17 @@ const CardWrapper = styled.div`
 
   h3 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   p {
     font-size: 1.4rem;
     line-height: 2.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  p.price {
+    margin-bottom: 2rem;
   }
 
   .card-side {
@@ -80,7 +87,7 @@ const CardWrapper = styled.div`
 
 const PricingSection = () => {
   return (
-    <PricingWrapper>
+    <PricingWrapper className="section section-content">
       <h2>아담의 번역 솔루션</h2>
       <CardWrapper>
         <div className="card-side card-side--front">
@@ -88,7 +95,7 @@ const PricingSection = () => {
           <p>300단어</p>
           <p>원어민 검수</p>
           <p>이메일, 유튜브 자막</p>
-          <p>₩5,000</p>
+          <p className="price">₩5,000</p>
           <ButtonPrimary>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back card-side--back-standard">CARD1 Back</div>
@@ -100,7 +107,7 @@ const PricingSection = () => {
           <p>300단어</p>
           <p>원어민 검수</p>
           <p>제품설명, 영문 이력서</p>
-          <p>₩6,000</p>
+          <p className="price">₩6,000</p>
           <ButtonPrimary>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back">CARD2 Back</div>
@@ -112,7 +119,7 @@ const PricingSection = () => {
           <p>300단어</p>
           <p>원어민 검수</p>
           <p>논문 및 특수 필드</p>
-          <p>₩10,000</p>
+          <p className="price">₩10,000</p>
           <ButtonPrimary>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back">CARD3 Back</div>

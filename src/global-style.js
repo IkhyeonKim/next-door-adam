@@ -57,6 +57,14 @@ const GlobalStyle = createGlobalStyle`
         font-size: 12.2rem;
         line-height: 11.8rem;
     }
+
+    .mt-10 {
+        margin-top: 1rem;
+    }
+
+    .mb-10 {
+        margin-bottom: 1rem;
+    }
 `;
 
 export default GlobalStyle;

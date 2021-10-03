@@ -44,7 +44,6 @@ const BrandSection = () => {
   useEffect(() => {
     const refElement = hiddenRef.current;
     const handleMouseMove = (e) => {
-      console.log("mousemove", e.path[0]);
       if (
         e.path[0].classList.contains("hidden-section") ||
         e.path[0].classList.contains("visible-section") ||
