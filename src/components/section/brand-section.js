@@ -3,15 +3,16 @@ import styled from "styled-components";
 
 const BrandWrapper = styled.div`
   position: relative;
-
+  background-color: white;
+  margin-top: 2rem;
   /* height: 380px; */
 `;
 
 const HiddenSection = styled.div`
-  clip-path: circle(120px at 50% 50%);
+  clip-path: circle(140px at 50% 50%);
   width: 100%;
   height: 100%;
-  padding: 10rem 1rem;
+  padding: 16rem 1rem;
   background-color: #f8d46c;
   cursor: none;
 
@@ -19,6 +20,7 @@ const HiddenSection = styled.div`
     font-size: 6rem;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
   }
 `;
 
@@ -26,12 +28,13 @@ const VisibleSection = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  padding: 10rem 1rem;
+  padding: 16rem 1rem;
 
   p {
     font-size: 6rem;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
   }
 `;
 
@@ -48,12 +51,12 @@ const BrandSection = () => {
         e.path[0].classList.contains("visible-content")
       ) {
         if (refElement) {
-          const isVisibeSectionY = e.path[0].classList.contains("visible-section") ? 95 : 0;
+          const isVisibeSectionY = e.path[0].classList.contains("visible-section") ? 170 : 0;
           const isVisibeSectionX = e.path[0].classList.contains("visible-section") ? 10 : 0;
 
           const offsetX = e.offsetX > 0 ? e.offsetX : 0;
           const offsetY = e.offsetY > 0 ? e.offsetY : 0;
-          refElement.style.clipPath = `circle(120px at ${offsetX + isVisibeSectionX}px ${
+          refElement.style.clipPath = `circle(140px at ${offsetX + isVisibeSectionX}px ${
             offsetY + isVisibeSectionY
           }px)`;
         }

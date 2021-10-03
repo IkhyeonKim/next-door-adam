@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 import "./assets/css/font.css";
+import "antd/dist/antd.css";
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -20,6 +21,12 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
 
         color: #111111;
+        background-color: #f2f2f2;
+    }
+
+    h2, h3, h4, h5 {
+        color: #1d1d1f;
+        margin: 0;
     }
 
       /* Scroll */
