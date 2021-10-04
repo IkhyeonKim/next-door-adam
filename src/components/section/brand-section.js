@@ -4,8 +4,6 @@ import styled from "styled-components";
 const BrandWrapper = styled.div`
   position: relative;
   background-color: white;
-  margin-top: 2rem;
-  /* height: 380px; */
 `;
 
 const HiddenSection = styled.div`

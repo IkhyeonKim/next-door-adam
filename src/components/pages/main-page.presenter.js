@@ -5,11 +5,11 @@ import PricingSection from "../section/pricing-section";
 
 const MainPagePresenter = () => {
   return (
-    <>
+    <div id="root-wrapper">
       <HeroSection />
       <BrandSection />
       <PricingSection />
-    </>
+    </div>
   );
 };
 

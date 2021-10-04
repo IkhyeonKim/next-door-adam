@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import ButtonPrimary from "../atoms/Button";
+import ButtonPrimary from "../atoms/button";
+import ModalForm from "../molcules/modalForm";
 
 const PricingWrapper = styled.div`
   width: 100%;
@@ -86,8 +87,9 @@ const CardWrapper = styled.div`
 `;
 
 const PricingSection = () => {
+  const [visible, setVisible] = useState(false);
   return (
-    <PricingWrapper className="section section-content">
+    <PricingWrapper id="my-price" className="section section-content">
       <h2>아담의 번역 솔루션</h2>
       <CardWrapper>
         <div className="card-side card-side--front">
@@ -96,7 +98,7 @@ const PricingSection = () => {
           <p>원어민 검수</p>
           <p>이메일, 유튜브 자막</p>
           <p className="price">₩5,000</p>
-          <ButtonPrimary>견적 문의하기</ButtonPrimary>
+          <ButtonPrimary onClick={() => setVisible(true)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back card-side--back-standard">CARD1 Back</div>
       </CardWrapper>
@@ -124,6 +126,8 @@ const PricingSection = () => {
         </div>
         <div className="card-side card-side--back">CARD3 Back</div>
       </CardWrapper>
+
+      <ModalForm visible={visible} setVisible={setVisible} />
     </PricingWrapper>
   );
 };

@@ -5,7 +5,7 @@ const ButtonWrapper = styled.div`
   .ant-btn {
     background-color: #1965c0;
     border: none;
-    border-radius: 20px;
+    border-radius: ${(props) => props.borderRadius || "20px"};
     color: white;
 
     &:hover {
@@ -14,10 +14,11 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-const ButtonPrimary = ({ children }) => {
+const ButtonPrimary = ({ children, ...rest }) => {
+  const { borderRadius } = rest;
   return (
-    <ButtonWrapper>
-      <Button>{children}</Button>
+    <ButtonWrapper borderRadius={borderRadius}>
+      <Button {...rest}> {children}</Button>
     </ButtonWrapper>
   );
 };
