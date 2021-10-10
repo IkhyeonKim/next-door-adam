@@ -17,9 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
     html, body, #root {
         font-family: 'Roboto-ragular', "Noto Sans KR", sans-serif;
-        width: 100%;
-        height: 100%;
-
+        height: auto;
         color: #111111;
         background-color: #f2f2f2;
     }

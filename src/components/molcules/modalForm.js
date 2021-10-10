@@ -1,19 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+
 import { Modal } from "antd";
 import ButtonPrimary from "../atoms/button";
 
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-color: rgba(0, 0, 0, 0.4);
-
-  z-index: 10;
-`;
+const getPopupContainer = () => {
+  return document.querySelector("#root");
+};
 
 const ModalForm = ({ visible, setVisible }) => {
   return (
@@ -23,11 +15,14 @@ const ModalForm = ({ visible, setVisible }) => {
       visible={visible}
       onOk={() => setVisible(false)}
       onCancel={() => setVisible(false)}
-      footer={[<ButtonPrimary borderRadius={"4px"}>보내기</ButtonPrimary>]}
+      getPopupContainer={getPopupContainer}
+      footer={[
+        <ButtonPrimary key="send-btn" borderradius={"4px"}>
+          보내기
+        </ButtonPrimary>,
+      ]}
     >
       <p>회신 받을 이메일 주소</p>
-      <p>용도</p>
-      <p>대략적인 내용</p>
     </Modal>
   );
 };

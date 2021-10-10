@@ -67,7 +67,7 @@ const BrandSection = () => {
     };
   }, []);
   return (
-    <BrandWrapper className="brand-section">
+    <BrandWrapper id="brand-section">
       <VisibleSection className="visible-section">
         <p className="visible-section">
           번역만 하지않습니다. <br /> 여러분의 이야기를 전달합니다.

@@ -12,7 +12,7 @@ const PricingWrapper = styled.div`
   grid-column-gap: 2rem;
   grid-template-rows: auto 30rem;
 
-  padding: 4rem 2rem;
+  padding: 4rem 0rem;
   margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -89,7 +89,7 @@ const CardWrapper = styled.div`
 const PricingSection = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <PricingWrapper id="my-price" className="section section-content">
+    <PricingWrapper id="pricing-section" className="section section-content">
       <h2>아담의 번역 솔루션</h2>
       <CardWrapper>
         <div className="card-side card-side--front">
