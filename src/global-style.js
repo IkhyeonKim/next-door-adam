@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
 
+    li {
+        list-style: none;
+    }
+
       /* Scroll */
     ::-webkit-scrollbar {
         width: 8px;

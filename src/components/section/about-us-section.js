@@ -7,16 +7,25 @@ const AboutWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
-  grid-template-rows: 40rem;
+  grid-template-rows: auto 40rem;
   justify-items: stretch;
   align-items: stretch;
 
-  padding: 0rem 0rem 10rem 0rem;
+  /* padding: 0rem 0rem 10rem 0rem; */
   margin-top: 3rem;
+  margin-bottom: 6rem;
   margin-left: auto;
   margin-right: auto;
 
-  background-color: violet;
+  h2 {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Profile = styled.div`
@@ -28,24 +37,51 @@ const Profile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+
+    background-color: white;
+    padding-top: 6rem;
+    border-radius: 0.8rem;
 
     &-1 {
-      background-color: palegreen;
       transform: matrix(1, 0, 0, 1, 0, 150);
       opacity: 1;
     }
 
     &-2 {
-      background-color: pink;
       transform: matrix(1, 0, 0, 1, 0, 150);
       opacity: 1;
     }
 
     &-3 {
-      background-color: maroon;
       transform: matrix(1, 0, 0, 1, 0, 150);
       opacity: 1;
+    }
+
+    &__picture {
+      width: 15rem;
+      height: 15rem;
+
+      border-radius: 50%;
+      background-color: #cce4ff;
+
+      margin-bottom: 3rem;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+
+        margin-bottom: 0.3rem;
+      }
+
+      li {
+        font-size: 1.2rem;
+      }
     }
   }
 `;
@@ -83,7 +119,7 @@ const AboutUs = () => {
     const handleScroll = (e) => {
       const currentScrollY = window.scrollY + window.innerHeight;
       const aboveHeight = hero.current.offsetHeight + brand.current.offsetHeight + pricing.current.offsetHeight;
-      const aboutSectionHeight = about.current.offsetHeight;
+      const aboutSectionHeight = about.current.offsetHeight + 200;
 
       const profile1Element = profile1.current;
       const profile2Element = profile2.current;
@@ -162,19 +198,41 @@ const AboutUs = () => {
 
   return (
     <AboutWrapper ref={about} id="about-us-section" className="section section-content">
+      <h2>아담과 친구들</h2>
       <Profile>
         <div ref={profile1} className="profile profile-1">
-          Adam
+          <div className="profile__picture"></div>
+          <div className="profile__info">
+            <span className="name">Adam</span>
+            <ul>
+              <li>Penn State University</li>
+              <li>한국기업 마케팅 부서 근무</li>
+            </ul>
+          </div>
         </div>
       </Profile>
       <Profile>
         <div ref={profile2} className="profile profile-2">
-          Sofia
+          <div className="profile__picture"></div>
+          <div className="profile__info">
+            <span className="name">Sofia</span>
+            <ul>
+              <li>한국외국대학교 졸업</li>
+              <li>국내기업 외국 법인장 통역 비서</li>
+              <li>미국기업 세일즈 파이프라인 담당</li>
+            </ul>
+          </div>
         </div>
       </Profile>
       <Profile>
         <div ref={profile3} className="profile profile-3">
-          Ikhyeon
+          <div className="profile__picture"></div>
+          <div className="profile__info">
+            <span className="name">Ikhyeon</span>
+            <ul>
+              <li>미국기업 영문 웹페이지 개발</li>
+            </ul>
+          </div>
         </div>
       </Profile>
     </AboutWrapper>
