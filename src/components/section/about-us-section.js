@@ -11,8 +11,8 @@ const AboutWrapper = styled.div`
   justify-items: stretch;
   align-items: stretch;
 
-  padding: 3rem 0rem 10rem 0rem;
-  margin-top: 2rem;
+  padding: 0rem 0rem 10rem 0rem;
+  margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
 
@@ -32,23 +32,27 @@ const Profile = styled.div`
 
     &-1 {
       background-color: palegreen;
-      transform: matrix(1, 0, 0, 1, 0, 100);
+      transform: matrix(1, 0, 0, 1, 0, 150);
       opacity: 1;
     }
 
     &-2 {
       background-color: pink;
-      transform: matrix(1, 0, 0, 1, 0, 80);
+      transform: matrix(1, 0, 0, 1, 0, 150);
       opacity: 1;
     }
 
     &-3 {
       background-color: maroon;
-      transform: matrix(1, 0, 0, 1, 0, 140);
+      transform: matrix(1, 0, 0, 1, 0, 150);
       opacity: 1;
     }
   }
 `;
+
+const firstThreshHold = 0.4;
+const secondThreshHold = 0.7;
+const thirdThreshHold = 1;
 
 const AboutUs = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
@@ -77,42 +81,78 @@ const AboutUs = () => {
     // window.innerHeight is the height of the browser window's viewport.
 
     const handleScroll = (e) => {
-      const padding = 100;
       const currentScrollY = window.scrollY + window.innerHeight;
       const aboveHeight = hero.current.offsetHeight + brand.current.offsetHeight + pricing.current.offsetHeight;
       const aboutSectionHeight = about.current.offsetHeight;
 
-      // console.log({ currentScrollY, aboveHeight });
+      const profile1Element = profile1.current;
+      const profile2Element = profile2.current;
+      const profile3Element = profile3.current;
 
       if (currentScrollY > aboveHeight && currentScrollY < aboveHeight + aboutSectionHeight) {
-        const profile1Element = profile1.current;
-        // console.log("It's about section", currentScrollY);
         const currentPosition = currentScrollY - aboveHeight;
         const progress = currentPosition / aboutSectionHeight;
+        console.log({ currentPosition, aboutSectionHeight, progress });
+        if (progress <= firstThreshHold) {
+          //  0   0.1,  0.2,   0.3,  0.4
+          //  0   25    50     75    100 (%)
+          // 100  75    50     25    0  (target value)
 
-        if (progress < 0.4) {
-          let t = progress * 3.33;
-          let ty = 100 - t * 100;
+          let t = progress * 375; // 0 ~ 0.4 총 4단계
+          let ty = 150 - t;
+          // console.log({ progress, t, ty });
 
           if (ty < 0) ty = 0;
-          console.log({ progress, t, ty });
+          // console.log({ progress, t, ty });
 
           profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
         }
 
-        // profile1Element.style.opacity = `${opac}`;
+        if (progress >= 0.3 && progress <= secondThreshHold) {
+          //  0   0.1,  0.2,  0.3   0.4 (progress)
+          // 0      25    50    75    100 (%)
+          // 0     37.5   75   112.5   150 (target value)
+          // 30 percent of 150 is 45
+          // 150 * 0.3 = 45
+          // 150x = 45 x = 45 / 150
+          // 구하고자 하는 수 / 전체 수 = 백분율
+          // 구하고자 하는 수 = 백분율 * 전체 수
 
-        // to -> transform: matrix(1, 0, 0, 1, 0, 0);
-        // TODO: use transform matrix and opacity
+          let t = (progress - 0.3) * 375; // 0 ~ 0.4 총 4단계
+          let ty = 150 - t;
+          if (ty < 0) ty = 0;
+
+          if (progress >= 0.4) {
+            //NOTE
+            // To prevent the situation that when the users scoll down so quickly
+            // and the event wouldn't be catchable
+            // To make sure that at certain points, these card are aligned
+            profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
+          }
+          profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
+        }
+
+        if (progress >= 0.6 && progress <= thirdThreshHold) {
+          let t = (progress - 0.6) * 375;
+          let ty = 150 - t;
+
+          if (ty < 0) ty = 0;
+          if (progress >= 0.7) {
+            //NOTE
+            // To prevent the situation that when the users scoll down so quickly
+            // and the event wouldn't be catchable
+            // To make sure that at certain points, these card are aligned
+            profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
+            profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
+          }
+
+          profile3Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
+        }
+      } else if (currentScrollY >= aboveHeight + aboutSectionHeight) {
+        profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
+        profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
+        profile3Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
       }
-      // console.log("handleScroll", {
-      //   offsetHeight: rootWrapper.current.offsetHeight,
-      //   clientHeight: rootWrapper.current.clientHeight,
-      //   scrollTop: rootWrapper.current.scrollTop,
-      // });
-      // console.log("handleScroll", hero.current.offsetHeight, hero.current.scrollHeight);
-      // console.log("handleScroll", brand.current.offsetHeight, brand.current.scrollHeight);
-      // console.log("handleScroll", pricing.current.offsetHeight, pricing.current.scrollHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
