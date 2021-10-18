@@ -10,7 +10,7 @@ const PricingWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
-  grid-template-rows: auto 30rem;
+  grid-template-rows: auto 40rem;
 
   padding: 4rem 0rem;
   margin-top: 2rem;
@@ -24,7 +24,7 @@ const PricingWrapper = styled.div`
     justify-content: center;
     font-weight: bold;
     font-size: 4rem;
-    margin-bottom: 0;
+    margin-bottom: 3rem;
   }
 `;
 
@@ -32,6 +32,8 @@ const CardWrapper = styled.div`
   perspective: 90rem;
   position: relative;
 
+  background-color: white;
+  border-radius: 12px;
   h3 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -87,10 +89,23 @@ const CardWrapper = styled.div`
 `;
 
 const PricingSection = () => {
-  const [visible, setVisible] = useState(false);
+  const [modalOption, setModalOption] = useState({
+    visible: false,
+    productNumber: 1,
+  });
+
+  const showModal = (visibility, productNumber) => {
+    setModalOption({
+      productNumber,
+      visible: visibility,
+    });
+  };
+  // #1965c0
   return (
     <PricingWrapper id="pricing-section" className="section section-content">
-      <h2>아담의 번역 솔루션</h2>
+      <h2>
+        <span style={{ color: "#1965c0" }}>아담</span>의 번역 솔루션
+      </h2>
       <CardWrapper>
         <div className="card-side card-side--front">
           <h3>아담의 스탠다드 솔루션</h3>
@@ -98,7 +113,7 @@ const PricingSection = () => {
           <p>원어민 검수</p>
           <p>이메일, 유튜브 자막</p>
           <p className="price">₩5,000</p>
-          <ButtonPrimary onClick={() => setVisible(true)}>견적 문의하기</ButtonPrimary>
+          <ButtonPrimary onClick={() => showModal(true, 1)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back card-side--back-standard">CARD1 Back</div>
       </CardWrapper>
@@ -110,7 +125,7 @@ const PricingSection = () => {
           <p>원어민 검수</p>
           <p>제품설명, 영문 이력서</p>
           <p className="price">₩6,000</p>
-          <ButtonPrimary>견적 문의하기</ButtonPrimary>
+          <ButtonPrimary onClick={() => showModal(true, 2)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back">CARD2 Back</div>
       </CardWrapper>
@@ -122,12 +137,16 @@ const PricingSection = () => {
           <p>원어민 검수</p>
           <p>논문 및 특수 필드</p>
           <p className="price">₩10,000</p>
-          <ButtonPrimary>견적 문의하기</ButtonPrimary>
+          <ButtonPrimary onClick={() => showModal(true, 3)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back">CARD3 Back</div>
       </CardWrapper>
 
-      <ModalForm visible={visible} setVisible={setVisible} />
+      {modalOption.visible ? (
+        <ModalForm visible={modalOption.visible} product={modalOption.productNumber} setVisible={showModal} />
+      ) : (
+        ""
+      )}
     </PricingWrapper>
   );
 };

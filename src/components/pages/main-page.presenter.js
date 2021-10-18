@@ -11,7 +11,6 @@ const MainPagePresenter = () => {
       <BrandSection />
       <PricingSection />
       <AboutUsSection />
-      <div style={{ width: "100%", height: "800px", background: "purple" }}>Another section</div>
     </div>
   );
 };

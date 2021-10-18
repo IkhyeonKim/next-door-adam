@@ -1,5 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+
+const Wrapper = styled.div`
+  background-color: white;
+`;
 
 const AboutWrapper = styled.div`
   width: 100%;
@@ -17,13 +21,15 @@ const AboutWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
 
+  padding: 4rem 0;
+
   h2 {
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
   }
 `;
@@ -38,7 +44,7 @@ const Profile = styled.div`
     flex-direction: column;
     align-items: center;
 
-    background-color: white;
+    background-color: #fff1c9;
     padding-top: 6rem;
     border-radius: 0.8rem;
 
@@ -62,7 +68,7 @@ const Profile = styled.div`
       height: 15rem;
 
       border-radius: 50%;
-      background-color: #cce4ff;
+      background-color: white;
 
       margin-bottom: 3rem;
     }
@@ -91,8 +97,6 @@ const secondThreshHold = 0.7;
 const thirdThreshHold = 1;
 
 const AboutUs = () => {
-  const [scrollHeight, setScrollHeight] = useState(0);
-
   const rootWrapper = useRef();
   const hero = useRef();
   const brand = useRef();
@@ -102,8 +106,6 @@ const AboutUs = () => {
   const profile1 = useRef();
   const profile2 = useRef();
   const profile3 = useRef();
-
-  const eventCountRef = useRef();
 
   useEffect(() => {
     rootWrapper.current = document.querySelector("#root-wrapper");
@@ -117,9 +119,18 @@ const AboutUs = () => {
     // window.innerHeight is the height of the browser window's viewport.
 
     const handleScroll = (e) => {
+      if (
+        hero.current === undefined ||
+        brand.current === undefined ||
+        pricing.current === undefined ||
+        about.current === undefined
+      )
+        return;
+
+      const padding = 40;
       const currentScrollY = window.scrollY + window.innerHeight;
       const aboveHeight = hero.current.offsetHeight + brand.current.offsetHeight + pricing.current.offsetHeight;
-      const aboutSectionHeight = about.current.offsetHeight + 200;
+      const aboutSectionHeight = about.current.offsetHeight + padding;
 
       const profile1Element = profile1.current;
       const profile2Element = profile2.current;
@@ -197,45 +208,47 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <AboutWrapper ref={about} id="about-us-section" className="section section-content">
-      <h2>아담과 친구들</h2>
-      <Profile>
-        <div ref={profile1} className="profile profile-1">
-          <div className="profile__picture"></div>
-          <div className="profile__info">
-            <span className="name">Adam</span>
-            <ul>
-              <li>Penn State University</li>
-              <li>한국기업 마케팅 부서 근무</li>
-            </ul>
+    <Wrapper>
+      <AboutWrapper ref={about} id="about-us-section" className="section section-content">
+        <h2>아담과 친구들을 만나보세요!</h2>
+        <Profile>
+          <div ref={profile1} className="profile profile-1">
+            <div className="profile__picture"></div>
+            <div className="profile__info">
+              <span className="name">Adam</span>
+              <ul>
+                <li>Penn State University</li>
+                <li>한국기업 마케팅 부서 근무</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Profile>
-      <Profile>
-        <div ref={profile2} className="profile profile-2">
-          <div className="profile__picture"></div>
-          <div className="profile__info">
-            <span className="name">Sofia</span>
-            <ul>
-              <li>한국외국대학교 졸업</li>
-              <li>국내기업 외국 법인장 통역 비서</li>
-              <li>미국기업 세일즈 파이프라인 담당</li>
-            </ul>
+        </Profile>
+        <Profile>
+          <div ref={profile2} className="profile profile-2">
+            <div className="profile__picture"></div>
+            <div className="profile__info">
+              <span className="name">Sofia</span>
+              <ul>
+                <li>한국외국대학교 졸업</li>
+                <li>국내기업 외국 법인장 통역 비서</li>
+                <li>미국기업 세일즈 파이프라인 담당</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Profile>
-      <Profile>
-        <div ref={profile3} className="profile profile-3">
-          <div className="profile__picture"></div>
-          <div className="profile__info">
-            <span className="name">Ikhyeon</span>
-            <ul>
-              <li>미국기업 영문 웹페이지 개발</li>
-            </ul>
+        </Profile>
+        <Profile>
+          <div ref={profile3} className="profile profile-3">
+            <div className="profile__picture"></div>
+            <div className="profile__info">
+              <span className="name">Ikhyeon</span>
+              <ul>
+                <li>미국기업 영문 웹페이지 개발</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </Profile>
-    </AboutWrapper>
+        </Profile>
+      </AboutWrapper>
+    </Wrapper>
   );
 };
 
