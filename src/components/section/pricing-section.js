@@ -13,7 +13,7 @@ const PricingWrapper = styled.div`
   grid-template-rows: auto 40rem;
 
   padding: 4rem 0rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   margin-left: auto;
   margin-right: auto;
 
@@ -104,15 +104,15 @@ const PricingSection = () => {
   return (
     <PricingWrapper id="pricing-section" className="section section-content">
       <h2>
-        <span style={{ color: "#1965c0" }}>아담</span>의 번역 솔루션
+        <span style={{ color: "#1965c0" }}>아담</span>의 솔루션
       </h2>
       <CardWrapper>
         <div className="card-side card-side--front">
-          <h3>아담의 스탠다드 솔루션</h3>
-          <p>300단어</p>
+          <h3>아담의 카피라이팅</h3>
+          <p>헤드카피, 바디카피</p>
           <p>원어민 검수</p>
-          <p>이메일, 유튜브 자막</p>
-          <p className="price">₩5,000</p>
+          <p>견적문의 필수</p>
+          <p className="price">₩100,000</p>
           <ButtonPrimary onClick={() => showModal(true, 1)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back card-side--back-standard">CARD1 Back</div>
@@ -120,11 +120,11 @@ const PricingSection = () => {
 
       <CardWrapper>
         <div className="card-side card-side--front">
-          <h3>아담의 디럭스 솔루션</h3>
-          <p>300단어</p>
+          <h3>아담의 아마존 패키지</h3>
+          <p>불렛 포인트, 상세 설명</p>
           <p>원어민 검수</p>
-          <p>제품설명, 영문 이력서</p>
-          <p className="price">₩6,000</p>
+          <p>키워드 리스팅 제공</p>
+          <p className="price">₩80,000</p>
           <ButtonPrimary onClick={() => showModal(true, 2)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back">CARD2 Back</div>
@@ -132,11 +132,11 @@ const PricingSection = () => {
 
       <CardWrapper>
         <div className="card-side card-side--front">
-          <h3>아담의 스위트 솔루션</h3>
-          <p>300단어</p>
+          <h3>아담의 일반번역</h3>
+          <p>100단어</p>
           <p>원어민 검수</p>
-          <p>논문 및 특수 필드</p>
-          <p className="price">₩10,000</p>
+          <p>유튜브 자막, 비즈니스 이메일 등</p>
+          <p className="price">₩5,000</p>
           <ButtonPrimary onClick={() => showModal(true, 3)}>견적 문의하기</ButtonPrimary>
         </div>
         <div className="card-side card-side--back">CARD3 Back</div>

@@ -7,7 +7,7 @@ const HeroWrapper = styled.div`
   position: relative;
   flex-direction: column;
   margin: auto;
-  padding: 5rem 0 4rem 6rem;
+  padding: 8rem 0 4rem 8rem;
 
   background-color: #f8d46c;
 
@@ -18,6 +18,7 @@ const HeroWrapper = styled.div`
 
   h1 {
     color: #1965c0;
+    margin-bottom: 0rem;
   }
 `;
 
@@ -25,8 +26,8 @@ const SideTitle = styled.div`
   font-size: 18.5rem;
   font-family: "TmonMonsori";
   position: absolute;
-  top: 162px;
-  left: -59px;
+  top: 130px;
+  left: -79px;
   letter-spacing: -1px;
   color: #4f7cb1;
   opacity: 0.15;
@@ -39,6 +40,8 @@ const HeroContent = styled.div`
   font-size: 2rem;
   font-weight: bold;
   color: #1965c0;
+
+  transform: translate(8px, 0);
 `;
 
 // 영문 번역/카피라이팅이 필요 할 땐?
@@ -57,13 +60,7 @@ const HeroSection = () => {
           <br />
           아담
         </h1>
-        <HeroContent
-          style={{
-            marginTop: "1rem",
-          }}
-        >
-          영문 번역/카피라이팅이 필요 할 땐?
-        </HeroContent>
+        <HeroContent>영문 번역/카피라이팅이 필요 할 땐?</HeroContent>
         <HeroContent>이웃집 아담에게 부탁하세요!</HeroContent>
         <SideTitle>Nextdoor Adam</SideTitle>
       </div>
