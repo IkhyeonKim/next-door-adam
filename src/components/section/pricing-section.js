@@ -12,7 +12,7 @@ const PricingWrapper = styled.div`
   grid-column-gap: 2rem;
   grid-template-rows: auto 40rem;
 
-  padding: 4rem 0rem;
+  padding: 10rem 0rem;
   /* margin-top: 2rem; */
   margin-left: auto;
   margin-right: auto;

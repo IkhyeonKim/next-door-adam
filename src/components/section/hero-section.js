@@ -53,7 +53,7 @@ const HeroContent = styled.div`
 
 const HeroSection = () => {
   return (
-    <HeroWrapper id="hero-section" className="section section-content">
+    <HeroWrapper id="hero-section" className="section">
       <div className="content-wrapper">
         <h1 className="main-title">
           이웃집

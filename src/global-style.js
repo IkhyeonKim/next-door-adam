@@ -52,6 +52,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .section-content {
+        margin-left: auto;
+        margin-right: auto;
+        width: 980px;
     }
 
     .main-title {

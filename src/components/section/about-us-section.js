@@ -15,13 +15,10 @@ const AboutWrapper = styled.div`
   justify-items: stretch;
   align-items: stretch;
 
-  /* padding: 0rem 0rem 10rem 0rem; */
-  margin-top: 3rem;
-  margin-bottom: 6rem;
   margin-left: auto;
   margin-right: auto;
 
-  padding: 4rem 0;
+  padding: 10rem 0;
 
   h2 {
     grid-column: 1 / -1;
@@ -139,7 +136,7 @@ const AboutUs = () => {
       if (currentScrollY > aboveHeight && currentScrollY < aboveHeight + aboutSectionHeight) {
         const currentPosition = currentScrollY - aboveHeight;
         const progress = currentPosition / aboutSectionHeight;
-        console.log({ currentPosition, aboutSectionHeight, progress });
+        // console.log({ currentPosition, aboutSectionHeight, progress });
         if (progress <= firstThreshHold) {
           //  0   0.1,  0.2,   0.3,  0.4
           //  0   25    50     75    100 (%)
@@ -179,7 +176,7 @@ const AboutUs = () => {
           profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
         }
 
-        if (progress >= 0.6 && progress <= thirdThreshHold) {
+        if (progress >= 0.55 && progress <= thirdThreshHold) {
           let t = (progress - 0.6) * 375;
           let ty = 150 - t;
 
