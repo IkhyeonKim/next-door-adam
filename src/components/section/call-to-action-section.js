@@ -1,5 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import ButtonPrimary from "../atoms/button";
+import ModalForm from "../molcules/modalForm";
 
 const CtaWrapper = styled.div`
   display: flex;
@@ -15,6 +17,10 @@ const CtaWrapper = styled.div`
     justify-content: center;
     font-weight: bold;
     font-size: 4rem;
+  }
+
+  .btn-wrapper {
+    margin-top: 1rem;
   }
 
   .paragraph {
@@ -44,6 +50,18 @@ const CtaWrapper = styled.div`
 `;
 
 const CtaSection = () => {
+  const [modalOption, setModalOption] = useState({
+    visible: false,
+    productNumber: 1,
+  });
+
+  const showModal = (visibility, productNumber) => {
+    setModalOption({
+      productNumber,
+      visible: visibility,
+    });
+  };
+
   const rootWrapper = useRef();
   const hero = useRef();
   const brand = useRef();
@@ -150,6 +168,17 @@ const CtaSection = () => {
             본래 의미를 잘 반영하고, 가장 자연스럽고 센스있는 표현의 글로 바꿔드릴게요.
           </li>
         </ul>
+        <div className="btn-wrapper">
+          <ButtonPrimary onClick={() => showModal(true, 1)} buttonSize="super">
+            견적 문의하기
+          </ButtonPrimary>
+        </div>
+
+        {modalOption.visible ? (
+          <ModalForm visible={modalOption.visible} product={modalOption.productNumber} setVisible={showModal} />
+        ) : (
+          ""
+        )}
       </CtaWrapper>
     </div>
   );
