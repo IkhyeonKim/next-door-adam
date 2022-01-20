@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import useScrollEffect from "../../hooks/useScroll";
 
 const Wrapper = styled.div`
   background-color: white;
@@ -100,7 +101,7 @@ const AboutUs = () => {
   const pricing = useRef();
   const about = useRef();
 
-  const profile1 = useRef();
+  const profile1 = useScrollEffect();
   const profile2 = useRef();
   const profile3 = useRef();
 
