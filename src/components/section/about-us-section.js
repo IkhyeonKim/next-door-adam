@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import useScrollEffect from "../../hooks/useScroll";
 
+const START_TY = 150;
+
 const Wrapper = styled.div`
   background-color: white;
 `;
@@ -52,12 +54,12 @@ const Profile = styled.div`
     }
 
     &-2 {
-      transform: matrix(1, 0, 0, 1, 0, 150);
+      transform: matrix(1, 0, 0, 1, 0, 0);
       opacity: 1;
     }
 
     &-3 {
-      transform: matrix(1, 0, 0, 1, 0, 150);
+      transform: matrix(1, 0, 0, 1, 0, 0);
       opacity: 1;
     }
 
@@ -101,7 +103,7 @@ const AboutUs = () => {
   const pricing = useRef();
   const about = useRef();
 
-  const profile1 = useScrollEffect();
+  const profile1 = useScrollEffect(about, START_TY);
   const profile2 = useRef();
   const profile3 = useRef();
 
@@ -117,6 +119,8 @@ const AboutUs = () => {
     // window.innerHeight is the height of the browser window's viewport.
 
     const handleScroll = (e) => {
+      return;
+      // eslint-disable-next-line no-unreachable
       if (
         hero.current === undefined ||
         brand.current === undefined ||

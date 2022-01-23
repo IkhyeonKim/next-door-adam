@@ -112,17 +112,6 @@ const CtaSection = () => {
 
         refCurrentRange.current = currentRange;
 
-        // console.log(progress / eachRange);
-
-        console.log({
-          currentRange,
-          eachRange,
-          // currentScrollY,
-          progress,
-          prveRange: refPrevRange.current,
-          // current: currentScrollY - aboveHeight,
-        });
-
         if (currentElement && refPrevRange.current !== currentRange) {
           // if (progress < 0.21) return;
           allLines[refPrevRange.current].classList.remove("active");
@@ -135,7 +124,7 @@ const CtaSection = () => {
         // Check progress what's current range
         // Add active class
       } else {
-        console.log("out of the range");
+        // console.log("out of the range");
       }
     };
 
