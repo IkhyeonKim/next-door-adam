@@ -104,109 +104,14 @@ const AboutUs = () => {
   const about = useRef();
 
   const profile1 = useScrollEffect(about, START_TY);
-  const profile2 = useRef();
-  const profile3 = useRef();
+  const profile2 = useScrollEffect(about, START_TY, 0.7);
+  const profile3 = useScrollEffect(about, START_TY, 1.0);
 
   useEffect(() => {
     rootWrapper.current = document.querySelector("#root-wrapper");
     hero.current = document.querySelector("#hero-section");
     brand.current = document.querySelector("#brand-section");
     pricing.current = document.querySelector("#pricing-section");
-  }, []);
-
-  useEffect(() => {
-    // window.innerHeight is just the height of the "what you see when the page loads".
-    // window.innerHeight is the height of the browser window's viewport.
-
-    const handleScroll = (e) => {
-      return;
-      // eslint-disable-next-line no-unreachable
-      if (
-        hero.current === undefined ||
-        brand.current === undefined ||
-        pricing.current === undefined ||
-        about.current === undefined
-      )
-        return;
-
-      const padding = 40;
-      const currentScrollY = window.scrollY + window.innerHeight;
-      const aboveHeight = hero.current.offsetHeight + brand.current.offsetHeight + pricing.current.offsetHeight;
-      const aboutSectionHeight = about.current.offsetHeight + padding;
-
-      const profile1Element = profile1.current;
-      const profile2Element = profile2.current;
-      const profile3Element = profile3.current;
-
-      if (currentScrollY > aboveHeight && currentScrollY < aboveHeight + aboutSectionHeight) {
-        const currentPosition = currentScrollY - aboveHeight;
-        const progress = currentPosition / aboutSectionHeight;
-        // console.log({ currentPosition, aboutSectionHeight, progress });
-        if (progress <= firstThreshHold) {
-          //  0   0.1,  0.2,   0.3,  0.4
-          //  0   25    50     75    100 (%)
-          // 100  75    50     25    0  (target value)
-
-          let t = progress * 375; // 0 ~ 0.4 총 4단계
-          let ty = 150 - t;
-          // console.log({ progress, t, ty });
-
-          if (ty < 0) ty = 0;
-          // console.log({ progress, t, ty });
-
-          profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
-        }
-
-        if (progress >= 0.3 && progress <= secondThreshHold) {
-          //  0   0.1,  0.2,  0.3   0.4 (progress)
-          // 0      25    50    75    100 (%)
-          // 0     37.5   75   112.5   150 (target value)
-          // 30 percent of 150 is 45
-          // 150 * 0.3 = 45
-          // 150x = 45 x = 45 / 150
-          // 구하고자 하는 수 / 전체 수 = 백분율
-          // 구하고자 하는 수 = 백분율 * 전체 수
-
-          let t = (progress - 0.3) * 375; // 0 ~ 0.4 총 4단계
-          let ty = 150 - t;
-          if (ty < 0) ty = 0;
-
-          if (progress >= 0.4) {
-            //NOTE
-            // To prevent the situation that when the users scoll down so quickly
-            // and the event wouldn't be catchable
-            // To make sure that at certain points, these card are aligned
-            profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
-          }
-          profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
-        }
-
-        if (progress >= 0.55 && progress <= thirdThreshHold) {
-          let t = (progress - 0.6) * 375;
-          let ty = 150 - t;
-
-          if (ty < 0) ty = 0;
-          if (progress >= 0.7) {
-            //NOTE
-            // To prevent the situation that when the users scoll down so quickly
-            // and the event wouldn't be catchable
-            // To make sure that at certain points, these card are aligned
-            profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
-            profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
-          }
-
-          profile3Element.style.transform = `matrix(1, 0, 0, 1, 0 , ${ty})`;
-        }
-      } else if (currentScrollY >= aboveHeight + aboutSectionHeight) {
-        profile1Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
-        profile2Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
-        profile3Element.style.transform = `matrix(1, 0, 0, 1, 0 , 0)`;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
