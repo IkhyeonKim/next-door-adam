@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import useScrollEffect from "../../hooks/useScroll";
 
@@ -92,27 +92,12 @@ const Profile = styled.div`
   }
 `;
 
-const firstThreshHold = 0.4;
-const secondThreshHold = 0.7;
-const thirdThreshHold = 1;
-
 const AboutUs = () => {
-  const rootWrapper = useRef();
-  const hero = useRef();
-  const brand = useRef();
-  const pricing = useRef();
   const about = useRef();
 
   const profile1 = useScrollEffect(about, START_TY);
   const profile2 = useScrollEffect(about, START_TY, 0.7);
   const profile3 = useScrollEffect(about, START_TY, 1.0);
-
-  useEffect(() => {
-    rootWrapper.current = document.querySelector("#root-wrapper");
-    hero.current = document.querySelector("#hero-section");
-    brand.current = document.querySelector("#brand-section");
-    pricing.current = document.querySelector("#pricing-section");
-  }, []);
 
   return (
     <Wrapper>
