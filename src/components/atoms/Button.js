@@ -6,7 +6,7 @@ const ButtonWrapper = styled.div`
     display: flex;
     align-items: center;
 
-    background-color: #1965c0;
+    background-color: var(--primary-blue);
     border: none;
     border-radius: ${(props) => props.borderradius || "20px"};
     color: white;

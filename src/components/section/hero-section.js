@@ -9,7 +9,7 @@ const HeroWrapper = styled.div`
   margin: auto;
   padding: 8rem 0 4rem 8rem;
 
-  background-color: #f8d46c;
+  background-color: var(--primary-yellow);
 
   .content-wrapper {
     width: 980px;
@@ -17,8 +17,12 @@ const HeroWrapper = styled.div`
   }
 
   h1 {
-    color: #1965c0;
+    color: var(--primary-blue);
     margin-bottom: 0rem;
+  }
+
+  @media only screen and (max-width: 1068px) {
+    padding: 4rem 0 2rem 4rem;
   }
 `;
 
@@ -33,13 +37,18 @@ const SideTitle = styled.div`
   opacity: 0.15;
   white-space: nowrap;
   cursor: default;
+
+  @media only screen and (max-width: 1068px) {
+    top: 109px;
+    left: -49px;
+  }
 `;
 
 const HeroContent = styled.div`
   font-family: "TmonMonsori";
   font-size: 2rem;
   font-weight: bold;
-  color: #1965c0;
+  color: var(--primary-blue);
 
   transform: translate(8px, 0);
 `;

@@ -10,10 +10,9 @@ const PricingWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
-  grid-template-rows: auto 40rem;
 
   padding: 10rem 0rem;
-  /* margin-top: 2rem; */
+
   margin-left: auto;
   margin-right: auto;
 
@@ -26,10 +25,14 @@ const PricingWrapper = styled.div`
     font-size: 4rem;
     margin-bottom: 3rem;
   }
+
+  @media only screen and (max-width: 1068px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const CardWrapper = styled.div`
-  perspective: 90rem;
+  min-height: 40rem;
   position: relative;
 
   background-color: white;
@@ -50,42 +53,29 @@ const CardWrapper = styled.div`
   }
 
   .card-side {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     transition: all 1s;
-    backface-visibility: hidden;
 
     &--front {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      /* border: solid 2px #1965c0; */
-      /* background-color: #90caf9; */
     }
 
     &--back {
-      /* background-color: #2495f3; */
       transform: rotateY(180deg);
 
       &-standard {
-        /* background: linear-gradient(to right bottom, #1965c0, #bbdefb); */
-        /* background-color: #f8d46c; */
         border: solid 2px #f8d46c;
       }
     }
   }
 
-  /* &:hover .card-side--front {
-    transform: rotateY(180deg);
+  @media only screen and (max-width: 1068px) {
+    margin-bottom: 2rem;
   }
-
-  &:hover .card-side--back {
-    transform: rotateY(0);
-  } */
 `;
 
 const PricingSection = () => {
@@ -115,7 +105,6 @@ const PricingSection = () => {
           <p className="price">₩100,000</p>
           <ButtonPrimary onClick={() => showModal(true, 1)}>견적 문의하기</ButtonPrimary>
         </div>
-        <div className="card-side card-side--back card-side--back-standard">CARD1 Back</div>
       </CardWrapper>
 
       <CardWrapper>
@@ -127,7 +116,6 @@ const PricingSection = () => {
           <p className="price">₩80,000</p>
           <ButtonPrimary onClick={() => showModal(true, 2)}>견적 문의하기</ButtonPrimary>
         </div>
-        <div className="card-side card-side--back">CARD2 Back</div>
       </CardWrapper>
 
       <CardWrapper>
@@ -139,7 +127,6 @@ const PricingSection = () => {
           <p className="price">₩5,000</p>
           <ButtonPrimary onClick={() => showModal(true, 3)}>견적 문의하기</ButtonPrimary>
         </div>
-        <div className="card-side card-side--back">CARD3 Back</div>
       </CardWrapper>
 
       {modalOption.visible ? (

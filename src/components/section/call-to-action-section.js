@@ -27,7 +27,7 @@ const CtaWrapper = styled.div`
     font-size: 7rem;
     font-weight: bold;
     margin-bottom: 0;
-    color: #1965c0;
+    color: var(--primary-blue);
     transform: matrix(1, 0, 0, 1, 0, 0);
 
     &__line {
@@ -125,9 +125,6 @@ const CtaSection = () => {
   return (
     <div className="section-content" ref={cta}>
       <CtaWrapper>
-        {/* <h2>
-          왜 &nbsp; <span style={{ color: "#1965c0" }}>이웃집 아담</span>을 선택해야 할까요?
-        </h2> */}
         <ul className="paragraph">
           <li className="paragraph__line paragraph__line--opacity paragraph__line--1 active">
             자동 번역 기술 덕분에 우리는 참 번역이 쉬운 세계에 살고 있어요.

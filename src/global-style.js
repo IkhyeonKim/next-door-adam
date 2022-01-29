@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
         background-color: #f2f2f2;
     }
 
+    :root {
+        --primary-yellow: #f8d46c;
+        --primary-blue: #1965c0;
+    }
+
     h2, h3, h4, h5 {
         color: #1d1d1f;
         margin: 0;
@@ -54,7 +59,12 @@ const GlobalStyle = createGlobalStyle`
     .section-content {
         margin-left: auto;
         margin-right: auto;
-        width: 980px;
+        /* width: 980px; */
+        max-width: 980px;
+
+        @media only screen and (max-width: 1068px){
+            max-width: 744px;
+        }
     }
 
     .main-title {
