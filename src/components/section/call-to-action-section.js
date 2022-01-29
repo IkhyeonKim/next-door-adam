@@ -90,24 +90,19 @@ const CtaSection = () => {
       )
         return;
 
-      const aboveHeight = cta.current.offsetTop;
-
       const currentScrollY = window.scrollY + window.innerHeight;
       const ctaSectionHeight = cta.current.offsetHeight;
 
-      // 스크롤 Y를 사용자에게 보이는 부분에서 부터 할건지
-      // 아니면 실제로 cta secation에 들어왔을 때 부터 할건지
-      // TODO
-      // 1. When the scroll goes down the lines should be going up
-      // 2.
+      const aboveHeight = window.scrollY + cta.current.getBoundingClientRect().top;
 
       if (currentScrollY > aboveHeight) {
         const allLines = document.querySelectorAll(".paragraph__line");
         const allLinesLength = allLines.length;
         const eachRange = 1 / allLinesLength;
         const progress = (currentScrollY - aboveHeight) / ctaSectionHeight;
+        const SMOOTH = 0.015;
 
-        const currentRange = Math.floor(progress / (eachRange + 0.01));
+        const currentRange = Math.floor(progress / (eachRange + SMOOTH));
         const currentElement = allLines[currentRange];
 
         refCurrentRange.current = currentRange;
@@ -119,12 +114,8 @@ const CtaSection = () => {
 
           currentElement.classList.add("active");
         }
-
-        // Get each range of the line elements
-        // Check progress what's current range
-        // Add active class
       } else {
-        // console.log("out of the range");
+        // Do nothing
       }
     };
 
