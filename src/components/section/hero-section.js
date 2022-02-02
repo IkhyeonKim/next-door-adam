@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import useScrollWithOpacity from "../../hooks/useScrollWithOpacity";
 
 const HeroWrapper = styled.div`
   width: 100%;
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0;
+  opacity: 1;
   flex-direction: column;
   margin: auto;
   padding: 8rem 0 4rem 8rem;
@@ -53,16 +56,10 @@ const HeroContent = styled.div`
   transform: translate(8px, 0);
 `;
 
-// 영문 번역/카피라이팅이 필요 할 땐?
-// 이웃집 아담에게 부탁하세요!
-// 이웃집 아담
-// 여러분의 목소리를 전달합니다.
-
-// 오른쪽에
-
 const HeroSection = () => {
+  const refOpacity = useScrollWithOpacity(undefined, 1);
   return (
-    <HeroWrapper id="hero-section" className="section">
+    <HeroWrapper ref={refOpacity} id="hero-section" className="section">
       <div className="content-wrapper">
         <h1 className="main-title">
           이웃집

@@ -10,6 +10,7 @@ export default function useScrollEffect(refWrapper, startTy, _endProgress) {
       const wrapperElement = refWrapper.current;
 
       if (!targetElement.current) return;
+      if (!wrapperElement) wrapperElement.offsetHeight = 0;
       const currentScrollY = window.scrollY + window.innerHeight; // 현재 보이는 최하단의 위치
       const aboveHeight = window.scrollY + wrapperElement.getBoundingClientRect().top;
 
@@ -17,7 +18,6 @@ export default function useScrollEffect(refWrapper, startTy, _endProgress) {
         const currentPosition = currentScrollY - aboveHeight;
         const progress = currentPosition / wrapperElement.offsetHeight;
 
-        console.log("In the range!", { progress });
         if (progress <= endProgress) {
           let p = progress * (startTy / endProgress); // progress * (초기상태값 / 최대임계점)
           let ty = startTy - p;
