@@ -25,6 +25,8 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --primary-yellow: #f8d46c;
         --primary-blue: #1965c0;
+        --medium-screen: 1068px;
+        --small-screen: 734px;
     }
 
     h2, h3, h4, h5 {

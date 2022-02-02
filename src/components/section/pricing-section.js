@@ -28,6 +28,13 @@ const PricingWrapper = styled.div`
 
   @media only screen and (max-width: 1068px) {
     grid-template-columns: repeat(2, 1fr);
+    max-width: 744px;
+  }
+
+  @media only screen and (max-width: 734px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 8rem 2rem;
+    max-width: 434px;
   }
 `;
 

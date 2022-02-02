@@ -32,10 +32,27 @@ const AboutWrapper = styled.div`
     font-size: 2rem;
     margin-bottom: 2rem;
   }
+
+  @media only screen and (max-width: 1068px) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 744px;
+  }
+
+  @media only screen and (max-width: 734px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 8rem 2rem;
+    max-width: 434px;
+  }
 `;
 
 const Profile = styled.div`
   position: relative;
+
+  @media only screen and (max-width: 1068px) {
+    margin-bottom: 2rem;
+    min-height: 38rem;
+  }
+
   .profile {
     width: 100%;
     height: 100%;
