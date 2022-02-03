@@ -11,6 +11,8 @@ const HeroWrapper = styled.div`
   flex-direction: column;
   margin: auto;
   padding: 8rem 0 4rem 8rem;
+  justify-content: center;
+  min-height: 60vh;
 
   background-color: var(--primary-yellow);
 
@@ -21,7 +23,7 @@ const HeroWrapper = styled.div`
 
   h1 {
     color: var(--primary-blue);
-    margin-bottom: 0rem;
+    margin-bottom: 1rem;
   }
 
   @media only screen and (max-width: 1068px) {
@@ -30,12 +32,12 @@ const HeroWrapper = styled.div`
 `;
 
 const SideTitle = styled.div`
-  font-size: 18.5rem;
+  font-size: 14.5rem;
   font-family: "TmonMonsori";
   position: absolute;
-  top: 130px;
-  left: -79px;
-  letter-spacing: -1px;
+  top: 205px;
+  left: -1px;
+  letter-spacing: -4px;
   color: #4f7cb1;
   opacity: 0.15;
   white-space: nowrap;
@@ -47,9 +49,10 @@ const SideTitle = styled.div`
   }
 `;
 
-const HeroContent = styled.div`
+const HeroContent = styled.h2`
   font-family: "TmonMonsori";
-  font-size: 2rem;
+  font-size: 2.5rem;
+  line-height: 3.2rem;
   font-weight: bold;
   color: var(--primary-blue);
 
