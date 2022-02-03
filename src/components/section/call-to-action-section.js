@@ -8,7 +8,7 @@ const CtaWrapper = styled.div`
   flex-direction: column;
   /* max-width: 92%; */
 
-  height: 280vh;
+  height: 260vh;
   padding: 6rem 4rem;
 
   h2 {
@@ -45,6 +45,24 @@ const CtaWrapper = styled.div`
 
     &__line:not(:first-child) {
       margin-left: 0.8rem;
+    }
+  }
+
+  @media only screen and (max-width: 1068px) {
+    padding: 3rem 2rem;
+    height: 200vh;
+
+    .paragraph {
+      font-size: 5rem;
+    }
+  }
+
+  @media only screen and (max-width: 734px) {
+    padding: 2rem 1rem;
+    height: 210vh;
+
+    .paragraph {
+      font-size: 4.5rem;
     }
   }
 `;
