@@ -63,21 +63,11 @@ const CardWrapper = styled.div`
     width: 100%;
     height: 100%;
     transition: all 1s;
-
-    &--front {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &--back {
-      transform: rotateY(180deg);
-
-      &-standard {
-        border: solid 2px #f8d46c;
-      }
-    }
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   @media only screen and (max-width: 1068px) {
