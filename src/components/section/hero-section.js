@@ -57,6 +57,11 @@ const HeroContent = styled.h2`
   color: var(--primary-blue);
 
   transform: translate(8px, 0);
+
+  @media only screen and (max-width: 734px) {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
 `;
 
 const HeroSection = () => {
