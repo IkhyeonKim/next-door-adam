@@ -39,7 +39,7 @@ const PricingWrapper = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  min-height: 40rem;
+  min-height: 400px;
   position: relative;
 
   background-color: white;
@@ -62,7 +62,6 @@ const CardWrapper = styled.div`
   .card-side {
     width: 100%;
     height: 100%;
-    transition: all 1s;
     display: flex;
     flex: 1;
     flex-direction: column;

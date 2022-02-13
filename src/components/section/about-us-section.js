@@ -50,7 +50,7 @@ const Profile = styled.div`
 
   @media only screen and (max-width: 1068px) {
     margin-bottom: 2rem;
-    min-height: 38rem;
+    min-height: 380px;
   }
 
   .profile {
