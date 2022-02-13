@@ -39,11 +39,10 @@ const PricingWrapper = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  min-height: 400px;
-  position: relative;
-
+  height: 40rem;
   background-color: white;
   border-radius: 12px;
+
   h3 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -72,6 +71,10 @@ const CardWrapper = styled.div`
   @media only screen and (max-width: 1068px) {
     margin-bottom: 2rem;
   }
+
+  @media only screen and (max-width: 734px) {
+    height: 38rem;
+  }
 `;
 
 const PricingSection = () => {
@@ -93,7 +96,7 @@ const PricingSection = () => {
         <span style={{ color: "#1965c0" }}>아담</span>의 솔루션
       </h2>
       <CardWrapper>
-        <div className="card-side card-side--front">
+        <div className="card-side">
           <h3>아담의 카피라이팅</h3>
           <p>헤드카피, 바디카피</p>
           <p>원어민 검수</p>
@@ -104,7 +107,7 @@ const PricingSection = () => {
       </CardWrapper>
 
       <CardWrapper>
-        <div className="card-side card-side--front">
+        <div className="card-side">
           <h3>아담의 아마존 패키지</h3>
           <p>불렛 포인트, 상세 설명</p>
           <p>원어민 검수</p>
@@ -115,7 +118,7 @@ const PricingSection = () => {
       </CardWrapper>
 
       <CardWrapper>
-        <div className="card-side card-side--front">
+        <div className="card-side">
           <h3>아담의 일반번역</h3>
           <p>100단어</p>
           <p>원어민 검수</p>
