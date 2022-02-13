@@ -4,78 +4,81 @@ import styled from "styled-components";
 const BrandWrapper = styled.div`
   position: relative;
   background-color: white;
-`;
-
-const HiddenSection = styled.div`
-  clip-path: circle(140px at 50% 50%);
-  width: 100%;
-  height: 100%;
-  padding: 16rem 1rem;
-  background-color: #f8d46c;
-  cursor: none;
 
   p {
+    width: 100%;
+    height: 100%;
     font-size: 6rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+`;
+
+const HiddenSection = styled.div`
+  clip-path: circle(150px at 50% 50%);
+  width: 100%;
+  height: 55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8d46c;
+  cursor: none;
 `;
 
 const VisibleSection = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
-  padding: 16rem 1rem;
-
-  p {
-    font-size: 6rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 0;
-  }
+  height: 55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const BrandSection = () => {
   const hiddenRef = useRef();
+  const sectionRef = useRef();
 
   useEffect(() => {
-    const refElement = hiddenRef.current;
-    const handleMouseMove = (e) => {
-      if (e.path === undefined) return; // For Safari error
-      if (
-        e.path[0].classList.contains("hidden-section") ||
-        e.path[0].classList.contains("visible-section") ||
-        e.path[0].classList.contains("visible-content")
-      ) {
-        if (refElement) {
-          const isVisibeSectionY = e.path[0].classList.contains("visible-section") ? 170 : 0;
-          const isVisibeSectionX = e.path[0].classList.contains("visible-section") ? 10 : 0;
+    const sectionRefElement = sectionRef.current;
+    const hddienRefElement = hiddenRef.current;
 
-          const offsetX = e.offsetX > 0 ? e.offsetX : 0;
-          const offsetY = e.offsetY > 0 ? e.offsetY : 0;
-          refElement.style.clipPath = `circle(140px at ${offsetX + isVisibeSectionX}px ${
-            offsetY + isVisibeSectionY
-          }px)`;
-        }
+    if (!sectionRefElement) return;
+
+    const handleMouseMove = (e) => {
+      if (hddienRefElement) {
+        const offsetX = e.offsetX > 0 ? e.offsetX : 0;
+        const offsetY = e.offsetY > 0 ? e.offsetY : 0;
+
+        console.log({ e, offsetX, offsetY });
+
+        hddienRefElement.style.clipPath = `circle(150px at ${offsetX}px ${offsetY}px)`;
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    sectionRefElement.addEventListener("mousemove", handleMouseMove);
+    sectionRefElement.addEventListener("mouseenter", handleMouseMove);
+    sectionRefElement.addEventListener("mouseleave", handleMouseMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      sectionRefElement.removeEventListener("mousemove", handleMouseMove);
+      sectionRefElement.removeEventListener("mouseenter", handleMouseMove);
+      sectionRefElement.removeEventListener("mouseleave", handleMouseMove);
     };
   }, []);
   return (
-    <BrandWrapper id="brand-section">
+    <BrandWrapper ref={sectionRef} id="brand-section">
       <VisibleSection className="visible-section">
-        <p className="visible-section">
+        <p>
           번역만 하지않습니다. <br /> 여러분의 이야기를 전달합니다.
         </p>
       </VisibleSection>
       <HiddenSection className="hidden-section" ref={hiddenRef}>
-        <p className="visible-section">
+        <p>
           We don't just translate <br /> We tell a story{" "}
         </p>
       </HiddenSection>
