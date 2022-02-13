@@ -42,7 +42,6 @@ const BrandSection = () => {
   useEffect(() => {
     const refElement = hiddenRef.current;
     const handleMouseMove = (e) => {
-      console.log({ e });
       if (e.path === undefined) return; // For Safari error
       if (
         e.path[0].classList.contains("hidden-section") ||

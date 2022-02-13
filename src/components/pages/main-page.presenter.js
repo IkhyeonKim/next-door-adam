@@ -18,8 +18,6 @@ const MainPagePresenter = () => {
     brand.current = document.querySelector("#brand-section");
     pricing.current = document.querySelector("#pricing-section");
     about.current = document.querySelector("#about-us-section");
-
-    console.log("@@@@@@@@", brand.current);
   }, []);
 
   return (

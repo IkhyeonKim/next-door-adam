@@ -26,8 +26,6 @@ const getPopupContainer = () => {
 const ModalForm = ({ visible, setVisible, product }) => {
   const onFinish = useCallback(
     async (values) => {
-      console.log(values);
-
       // const response = await fetch("https://getform.io/f/14892587-871e-4bd9-8f44-3d5e291186ff", {
       //   method: "POST", // or 'PUT'
       //   body: new URLSearchParams({

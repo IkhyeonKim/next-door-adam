@@ -25,7 +25,7 @@ export default function useScrollWithOpacity(refWrapper, startOpacity, _threshol
         if (progress < threshold) {
           targetElement.current.style.opacity = `1`;
         } else if (progress >= threshold) {
-          console.log("In range", { progress });
+          // console.log("In range", { progress });
           let p = (1 - progress) * 1.5;
           // let ty = startOpacity - p;
           // if (ty < 0) ty = 0;
